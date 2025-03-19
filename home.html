@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Name</title>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Colors */
+    :root {
+      --primary: #2c3e50;
+      --secondary: #e74c3c;
+      --light: #f8f9fa;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 5%;
+      background: var(--primary);
+      color: white;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .cta-button {
+      background: var(--secondary);
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 600px;
+      background: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+      display: flex;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 10%;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .search-bar {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      flex: 1;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      background: var(--secondary);
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 50px 10%;
+      text-align: center;
+    }
+
+    .quick-link {
+      padding: 30px;
+      background: var(--light);
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .quick-link:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Amenities */
+    .amenities {
+      padding: 50px 10%;
+      background: var(--primary);
+      color: white;
+    }
+
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .amenity-card {
+      text-align: center;
+    }
+
+    /* Rooms */
+    .rooms {
+      padding: 50px 10%;
+    }
+
+    .room-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .room-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary);
+      color: white;
+      padding: 50px 10%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    /* Developer Contact */
+    .developer-contact {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 20px;
+      grid-column: 1 / -1;
+      /* Span across all columns */
+    }
+
+    .developer-contact a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .developer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero {
+        height: 400px;
+      }
+
+      .quick-links {
+        grid-template-columns: 1fr;
+      }
+
+      .amenities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .room-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">Hotel KHOYO</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="home.html"  class="active">Home</a></li>
+          <li><a href="rooms.html">Rooms</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button class="cta-button"
+          onclick="location.href='register.html'">Register</button>
+        <button class="cta-button"
+          onclick="location.href='signin.html'">Login</button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Welcome to Hotel KHOYO</h1>
+        <p>Luxury Redefined</p>
+        <div class="search-bar">
+          <input type="date" placeholder="Check-in">
+          <input type="date" placeholder="Check-out">
+          <input type="number" placeholder="Guests">
+          <button>Check Availability</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+      <div class="quick-link">
+        <i class="fas fa-bed fa-2x"></i>
+        <h3>Rooms & Suites</h3>
+      </div>
+      <div class="quick-link">
+        <i class="fas fa-spa fa-2x"></i>
+        <h3>Spa & Wellness</h3>
+      </div>
+      <div class="quick-link">
+        <i class="fas fa-utensils fa-2x"></i>
+        <h3>Dining Experiences</h3>
+      </div>
+    </section>
+
+    <!-- Amenities -->
+    <section class="amenities">
+      <h2>Why Choose Us?</h2>
+      <div class="amenities-grid">
+        <div class="amenity-card">
+          <i class="fas fa-wifi fa-3x"></i>
+          <p>Free Wi-Fi</p>
+        </div>
+        <div class="amenity-card">
+          <i class="fas fa-swimmer fa-3x"></i>
+          <p>Infinity Pool</p>
+        </div>
+        <div class="amenity-card">
+          <i class="fas fa-dumbbell fa-3x"></i>
+          <p>24/7 Gym</p>
+        </div>
+        <div class="amenity-card">
+          <i class="fas fa-concierge-bell fa-3x"></i>
+          <p>Concierge Service</p>
+        </div>
+      </div>
+    </section>
+
+    < <!-- Rooms -->
+    <section class="rooms">
+      <h2>Our Rooms</h2>
+      <div class="room-cards">
+        <!-- Deluxe Suite -->
+        <div class="room-card">
+          <img
+            src="https://images.unsplash.com/photo-1626868449668-fb47a048d9cb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Deluxe Suite">
+          <div class="room-details">
+            <h3>Deluxe Suite</h3>
+            <p>King bed, ocean view, private balcony</p>
+            <button class="cta-button">View Details</button>
+          </div>
+        </div>
+
+        <!-- Executive Room -->
+        <div class="room-card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1664299335717-71d868cd964e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Executive Room">
+          <div class="room-details">
+            <h3>Executive Room</h3>
+            <p>Queen bed, city view, workspace</p>
+            <button class="cta-button">View Details</button>
+          </div>
+        </div>
+
+        <!-- Presidential Suite -->
+        <div class="room-card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1661938258255-ac0c52834c10?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Presidential Suite">
+          <div class="room-details">
+            <h3>Presidential Suite</h3>
+            <p>Two bedrooms, jacuzzi, VIP lounge access</p>
+            <button class="cta-button">View Details</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>123 Luxury Lane<br>City, Country<br>Phone: +123 456 7890</p>
+      </div>
+      <div class="footer-section">
+        <h3>Newsletter</h3>
+        <input type="email" placeholder="Your email">
+        <button class="cta-button">Subscribe</button>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <!-- Instagram Link -->
+          <a href="https://www.instagram.com/_ayaankhalifa" target="_blank">
+            <i class="fab fa-instagram fa-2x"></i>
+          </a>
+          <!-- Facebook Link -->
+          <a href="https://www.facebook.com/share/19wGxtPUJi/" target="_blank">
+            <i class="fab fa-facebook fa-2x"></i>
+          </a>
+          <!-- Twitter Link -->
+          <a href="https://www.twitter.com/_Ayaan_Khalifa" target="_blank">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+        </div>
+      </div>
+      <!-- Developer Contact -->
+      <div class="developer-contact">
+        Developed by <a href="mailto:ayaankhalifa4432@gmail.com">Ayaan
+          Khalifa</a>
+      </div>
+    </footer>
+  </body>
+
+</html>
